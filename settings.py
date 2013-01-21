@@ -67,7 +67,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'BlogApps.urls'
+ROOT_URLCONF = 'BlogEngine.urls'
 
 TEMPLATE_DIRS = (
 	os.path.join(PROJECT_ROOT, "templates/blog"),
