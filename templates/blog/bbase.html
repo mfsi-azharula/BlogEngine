@@ -27,6 +27,7 @@
 			<p style="margin-top: -10px; margin-left: 0px; ">
 				<span class="label">Commercial add section</span>
 			</p>
+			
 			 <p style="margin-top: -10px; margin-left: 655px; ">
 			 {% if user.is_staff %}
 				<span class="label label-important">Welcome Admin</span>
@@ -45,8 +46,11 @@
 					<a href="{% url admin:blog_post_add %}" class="btn btn-primary btn-small">Add post</a>
 				{% endif %}
 		    </p>
+		<div id="sidebar">
+			<iframe src="http://192.168.11.230/ad/ad.html" frameBorder="0"  scrolling="no" style="width:290px; height:250px; margin-left:-65px; margin-top: 30px"></iframe>
+		</div>
 		<div id="sidebar"> {% block sidebar %} {% endblock %} </div>
-			<div id="container">
+			<div id="container" style="margin-top: -290px; margin-left: 230px ">
 				<div id="content">
 					{% block content %}{% endblock %}
 				</div>
