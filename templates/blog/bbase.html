@@ -1,0 +1,56 @@
+{% load tags %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Blog{% endblock %}</title>
+		<link rel="stylesheet" href="{% get_static_url %}/css/bootstrap.css" type="text/css"/>
+		<link rel="stylesheet" href="{% get_static_url %}/css/style.css" type="text/css"/>
+		<link rel="stylesheet" href="{% get_static_url %}/css/list.css" type="text/css"/>
+		<script type="text/javascript" language="javascript" src="{% get_static_url %}/js/bootstrap.js"></script>
+		<script type="text/javascript" language="javascript" src="{% get_static_url %}/js/bootstrap-modal.js"></script>
+	</head>
+	<body>
+		<div class="modal fade" id="test_modal">
+			  <div class="modal-header">
+			    <a class="close" data-dismiss="modal">&times;</a>
+			    <h3>Modal Header</h3>
+			  </div>
+			  <div class="modal-body">
+			    <p>Test Modal</p>
+			  </div>
+			  <div class="modal-footer">
+			    <a href="#" class="btn" data-dismiss="modal">Close</a>
+			    <a href="#" class="btn btn-primary">Save Changes</a>
+			  </div>
+		</div>
+		<div class="hero-unit">
+			<p style="margin-top: -10px; margin-left: 0px; ">
+				<span class="label">Commercial add section</span>
+			</p>
+			 <p style="margin-top: -10px; margin-left: 655px; ">
+			 {% if user.is_staff %}
+				<span class="label label-important">Welcome Admin</span>
+			{% endif %}
+			</p>
+		    <p style="margin-top: -10px; margin-left: 655px; ">
+		    	<a class="btn btn-primary btn-small" href="../">
+			     Blog Home
+			    </a>
+			    <a href="" class="btn btn-primary btn-small">About Author</a>
+			    <a class="btn btn-primary btn-small" href="../">
+			   			Contact 
+			    </a>
+			    {% if user.is_staff %}
+					<a href="{% url admin:index %}" class="btn btn-primary btn-small">Admin</a>
+					<a href="{% url admin:blog_post_add %}" class="btn btn-primary btn-small">Add post</a>
+				{% endif %}
+		    </p>
+		<div id="sidebar"> {% block sidebar %} {% endblock %} </div>
+			<div id="container">
+				<div id="content">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

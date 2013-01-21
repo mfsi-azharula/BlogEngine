@@ -1,0 +1,33 @@
+.main 
+{
+	margin-left: 25px; margin-top: 30px; 
+}
+.time 
+{ 
+	font-size: 0.8em; margin-top: 2px; 
+}
+.body 
+{	
+	font-size: 1.06em; margin-top: 1px; font-family: fantasy, cursive, Impact ;margin-top: 20px; 
+}
+.commentlink 
+{ 
+	text-align: right; 
+}
+.step-links a 
+{
+	font-size: 0.89em; 
+}
+.title 
+{
+	font-size: 1.4em; color:#B94A48; font-family: Impact; margin-top: 20px; border-bottom: 1px solid #ccc;
+                padding-left: 4px; margin-left: 5px;
+}
+.messages 
+{
+ margin-left: 20px; 
+}
+.pagination
+ {
+	margin-top: 20px; margin-left: -20px; 
+}

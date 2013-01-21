@@ -1,0 +1,53 @@
+{% extends "bbase.html" %}
+{% load url from future %}
+{% block content %}
+ <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+                (document, 'script', 'facebook-jssdk'));
+        </script>
+    <div class="main">
+        <!-- Posts  -->
+        <ul>
+            {% for post in posts.object_list %}
+                <div class="title">{{ post.title }}</div>
+                <ul>
+                    <div class="label">{{ post.created }}</div>
+                    <div class="body">{{ post.body|linebreaks }}</div>
+                    <div class="commentlink"></div>
+                    <a href="{% url 'blog:post' post.pk %}" class="label label-success">Comments</a>
+                    <span class="label label-important">Tag</span>
+                    <span class="label label-info">Like with facebook</span>
+                    <div class="fb-like" data-href="http://192.168.11.230:8000/" data-send="true" data-width="450" data-show-faces="true" style="margin-left:100px"></div>
+                </ul>
+            {% endfor %}
+        </ul>
+
+        <!-- Next/Prev page links  -->
+        {% if posts.object_list and posts.paginator.num_pages > 1 %}
+            <div class="pagination" style="margin-top: 20px; margin-left: 5px; ">
+                <span class="step-links">
+                   <ul class="pager">
+                    {% if posts.has_previous %}
+                       <li> <a href= "?page={{ posts.previous_page_number }}">Previous &lt;&lt; </a></li>
+                    {% endif %}
+                    </ul>
+                    <span class="label label-important" style="margin-left: 685px; ">
+                        &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                    </span>
+                     <ul class="pager" style="margin-left: 685px; ">
+                        {% if posts.has_next %}
+                           <li> <a href="?page={{ posts.next_page_number }}"> &gt;&gt; Next</a></li>
+                        {% endif %}
+                    </ul>
+                </span>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
